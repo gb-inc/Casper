@@ -13,22 +13,21 @@
     
         {{!-- {{content}} --}}
     <div class="inner inner-page-tags">
-        <div>
-                {{#get 'tags' filter='slug:-[codelibrary]' limit='all'}}
+                {{#get 'tags' filter='slug:-[topics]' limit='all'}}
                     {{#foreach tags}}
-                        <h3 id={{ name }}>{{ name }}</h3>
-                        <div>
-                        <ul>
-                        {{#get "posts" filter="tags:{{slug}}" order="asc"}}                  
-                        {{#foreach posts}}
-                        {{> "code-card"}}
-                        {{/foreach}}
-                        {{/get}}
-                        </ul>
-                        </div>
+                            <h5 class='anchorjs-link' id="{{slug}}">{{ name }} <a href='#{{slug}}'><img width="10px" height="10px" src='/assets/icons/link.png' /></a></h3>
+                            <div>
+                            
+                            {{#get "posts" filter="primary_tag:{{slug}}" order="asc"}}  
+                            <ul>                
+                            {{#foreach posts}}
+                            {{> "code-card-small"}}
+                            {{/foreach}}
+                            {{/get}}
+                            </ul>
+                            </div>
                     {{/foreach}}
                 {{/get}}
-        </div>
     </div>
     
 
