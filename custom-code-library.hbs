@@ -62,12 +62,12 @@
         <div>
                 {{#get "tags" limit="all"}}
                     {{#foreach tags visibility="internal"}}
-                        <h2 class="anchorjs-link" id="{{slug}}">{{ name }} Routines<a href='#{{slug}}'><img width="15px" height="15px" src='/assets/icons/link.png' /></a></h2>
+                        <h6 class="anchorjs-link" id="{{slug}}">{{ name }} Routines<a href='#{{slug}}' data-anchorjs-icon=""></a></h2>
                         <div>
                         <ul>
                         {{#get "posts" filter="tags:{{slug}}" order="asc"}}                  
                         {{#foreach posts}}
-                        {{> "code-card"}}
+                        {{> "code-card-small"}}
                         {{/foreach}}
                         {{/get}}
                         </ul>
