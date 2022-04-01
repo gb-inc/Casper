@@ -138,11 +138,6 @@ production stylesheet in assets/built/screen.css
     text-decoration:none;
 }
 
-.anchorjs-link img {
-    width: 15px;
-    height: 15px;
-}
-
 .anchorjs-link:hover a{
     padding-left: 10px;
     opacity: 100;
