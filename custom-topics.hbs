@@ -13,7 +13,7 @@
     
         {{!-- {{content}} --}}
     <div class="inner inner-page-tags">
-                {{#get 'tags' filter='slug:-[topics]' limit='all'}}
+                {{#get 'tags' limit='all'}}
                     {{#foreach tags}}
                             <h5 class='anchorjs-link' id="{{slug}}">{{ name }} <a href='#{{slug}}' data-anchorjs-icon=""></a></h3>
                             <div>
