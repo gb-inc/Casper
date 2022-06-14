@@ -13,13 +13,18 @@
     
         {{!-- {{content}} --}}
     <div class="inner inner-page-tags">
-                {{#get 'tags' filter='slug:-[topics]' limit='all'}}
+                {{#get 'tags' limit='all'}}
                     {{#foreach tags}}
                             <h5 class='anchorjs-link' id="{{slug}}">{{ name }} <a href='#{{slug}}' data-anchorjs-icon=""></a></h3>
+                            <ul style="font-size: 14px;">
+                                <li><a href="https://nolongerset.com/tag/{{slug}}"><b style="text-decoration: underline;">["{{name}}" tag page]:</b></a> Show all articles with the tag "{{name}}" (including those where "{{name}}" is a secondary tag).</li>
+                            </ul>
                             <div>
                             
-                            {{#get "posts" filter="primary_tag:{{slug}}" order="asc"}}  
-                            <ul>                
+                            {{#get "posts" filter="primary_tag:{{slug}}" limit='all' order="published_at asc"}}  
+                            <ul>
+                                {{!-- <li><b></b> Show all articles with the tag "{{name}}"</li>                 --}}
+                            
                             {{#foreach posts}}
                             {{> "code-card-small"}}
                             {{/foreach}}
