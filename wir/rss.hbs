@@ -1,0 +1,33 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+<channel>
+<title><![CDATA[ {{@site.title}} ]]></title>
+<description><![CDATA[ {{@site.description}} ]]></description>
+<link>{{@site.url}}</link>
+<image>
+    <url>{{@site.url}}/favicon.png</url>
+    <title>{{@site.title}}</title>
+    <link>{{@site.url}}</link>
+</image>
+<lastBuildDate>{{date format="ddd, DD MMM YYYY HH:mm:ss ZZ"}}</lastBuildDate>
+<atom:link href="{{@site.url}}/wir/rss/" rel="self" type="application/rss+xml"/>
+<ttl>60</ttl>
+
+{{#get "posts" limit="7" include="authors,tags"}}
+    {{#foreach posts}}
+    <item>
+        <title><![CDATA[ {{title}} ]]></title>
+        <description><![CDATA[ {{excerpt}} ]]></description>
+        <link>{{url absolute="true"}}</link>
+        <guid isPermaLink="false">{{id}}</guid>
+        {{#foreach tags}}
+        <category><![CDATA[ {{name}} ]]></category>
+        {{/foreach}}
+        <dc:creator><![CDATA[ {{primary_author.name}} ]]></dc:creator>
+        <pubDate>{{date subtract="1" format="ddd, DD MMM YYYY HH:mm:ss ZZ" time_zone="America/New_York"}}</pubDate>
+        <media:content url="{{feature_image}}" medium="image"/>
+    </item>
+    {{/foreach}}
+{{/get}}
+
+</channel>
+</rss>
