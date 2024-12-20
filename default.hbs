@@ -60,7 +60,18 @@
                 </div>
 
                 {{#unless @member}}
-                    <a class="gh-head-button" href="#/portal/signup">Subscribe</a>
+                    <button class="ml-onclick-form" onclick="ml('show', 'HflJMM', true)" style="
+                            background-color: #FFF; 
+                            color: #15171a;
+                            padding: 5.1px 15px; 
+                            font-size: 1.5rem; 
+                            margin-right: 15px;
+                            font-weight: 500;
+                            letter-spacing: -0.015em;
+                            border-radius: 30px; 
+                            cursor: pointer;">
+                        Sign Up
+                    </button>
                 {{else}}
                     <a class="gh-head-button" href="#/portal/account">Account</a>
                 {{/unless}}
